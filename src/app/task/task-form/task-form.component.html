@@ -1,0 +1,28 @@
+<form *ngIf="task" (ngSubmit)="onSubmit()" #taskForm="ngForm">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel">
+
+                <!-- task name -->
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input type="text" class="form-control" id="title" required [(ngModel)]="task.title" name="title"
+                        #name="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Content</label>
+                <input type="text" class="form-control" id="content" required [(ngModel)]="task.content" name="content"
+                    #name="ngModel">
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+                Valider
+            </button>
+        </div>
+
+
+    </div>
+</form>
+<h3 *ngIf="!task" class="center">Aucun pokémon à éditer...</h3>

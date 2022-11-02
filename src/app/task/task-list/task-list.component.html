@@ -1,0 +1,42 @@
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-9 col-xl-7">
+          <div class="card rounded-3">
+            <div class="card-body p-4">
+
+
+                <a
+                class="btn btn-primary"
+                routerLink="/task/add"
+                >+</a>
+  
+              <table class="table">
+                <thead>
+                  <tr>
+
+                    <th scope="col">Todo title</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Expiration</th>
+                    <th scope="col">show more</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="col" *ngFor="let task of taskList; let i = index">
+                        <td >{{task.title}}</td>
+                        <td *ngIf="task.status"> Done   </td>
+                        <td *ngIf="!task.status"> Not Done </td>
+                        <td >{{task.created | date: 'dd/MM/yyyy'}}</td>
+                        <td  >
+                          <a (click)="goToTask(task)"  class="btn btn-success">+</a>
+                        </td>
+                      </tr>
+                </tbody>
+              </table>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

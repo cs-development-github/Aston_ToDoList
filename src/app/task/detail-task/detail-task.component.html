@@ -1,0 +1,30 @@
+<div *ngIf="task">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Status</th>
+            <th scope="col">Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> {{ task.title }} </td>
+            <td>{{ task.content }}</td>
+            <td *ngIf="task.status"> Done   </td>
+            <td *ngIf="!task.status"> Not Done </td>
+            <td>{{ task.created | date: 'dd/MM/yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a (click)="deleteTask(task)" class="btn btn-danger">Supprimer</a>
+</div>
+
+
+
+<div *ngIf="!task" class="center">
+    <h1>Chargement de la tache</h1>
+</div>
+
